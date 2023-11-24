@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +10,16 @@ using Newtonsoft.Json;
 using RestSharp;
 
 namespace MarinosV2PrototypeClient.Services;
+
+public interface ITest<T> where T : ICollection
+{
+    public T List { get; set; }
+}
+
+public class Test : ITest<List<SmsPartition>>
+{
+    public List<SmsPartition> List { get; set; }
+}
 
 public class SmsPartitionService : TreeTService<SmsPartition>
 {
@@ -31,23 +42,4 @@ public class SmsPartitionService : TreeTService<SmsPartition>
 
         return null;
     }
-    //public async Task<IList<SmsPartition>?> GetTree()
-    //{
-    //    return (await GetAll())?.GetTreeFromList();
-    //}
-
-    //public async Task<IList<SmsPartition>?> GetBranch(Guid? parentId)
-    //{
-    //    try
-    //    {
-    //        var response = await g.ApiClient.ExecuteAsync(new RestRequest($"{ApiPath}/Branch/{parentId}"));
-    //        if (response.IsSuccessStatusCode && !string.IsNullOrEmpty(response.Content))
-    //            return JsonConvert.DeserializeObject<List<SmsPartition>>(response.Content);
-    //    }
-    //    catch (Exception e)
-    //    {
-    //    }
-
-    //    return null;
-    //}
 }
