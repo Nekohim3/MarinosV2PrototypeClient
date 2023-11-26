@@ -4,69 +4,24 @@ using DynamicData;
 using MarinosV2PrototypeClient.Models.BaseModels;
 using MarinosV2PrototypeClient.Utils;
 using MarinosV2PrototypeClient.Utils.Tracking;
+using MarinosV2PrototypeShared.BaseModels;
+using MarinosV2PrototypeShared.Models;
 using Newtonsoft.Json;
 using ReactiveUI;
 
 namespace MarinosV2PrototypeClient.Models;
 
-public class SmsDocument : Entity
+public class UI_SmsDocument : SmsDocument
 {
-    private string _name;
-    [TrackInclude, JsonProperty]
-    public string Name
+    public UI_SmsDocument()
     {
-        get => _name;
-        set => this.RaiseAndSetIfChanged(ref _name, value);
+
     }
 
-    private string _number;
-    [TrackInclude, JsonProperty]
-    public string Number
+    public UI_SmsDocument(string name, string number)
     {
-        get => _number;
-        set => this.RaiseAndSetIfChanged(ref _number, value);
-    }
-
-    private Guid _idPartition;
-    [TrackInclude, JsonProperty]
-    public Guid IdPartition
-    {
-        get => _idPartition;
-        set => this.RaiseAndSetIfChanged(ref _idPartition, value);
-    }
-
-    private SmsPartition? _partition;
-    public SmsPartition? Partition
-    {
-        get => _partition;
-        set => this.RaiseAndSetIfChanged(ref _partition, value);
-    }
-
-    private ObservableCollectionWithSelectedItem<SmsDocumentChange> _documentChanges = new();
-    [JsonProperty]
-    public ObservableCollectionWithSelectedItem<SmsDocumentChange> DocumentChanges
-    {
-        get => _documentChanges;
-        set => this.RaiseAndSetIfChanged(ref _documentChanges, value);
-    }
-
-    private ObservableCollectionWithSelectedItem<SmsDocumentFile> _documentFiles = new();
-    [JsonProperty]
-    public ObservableCollectionWithSelectedItem<SmsDocumentFile> DocumentFiles
-    {
-        get => _documentFiles;
-        set => this.RaiseAndSetIfChanged(ref _documentFiles, value);
-    }
-
-    public SmsDocument()
-    {
-            
-    }
-
-    public SmsDocument(string name, string number)
-    {
-        _name        = name;
-        _number      = number;
+        Name = name;
+        Number = number;
     }
 
     public void AddChange(SmsDocumentChange change)

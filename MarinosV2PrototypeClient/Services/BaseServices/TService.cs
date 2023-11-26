@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MarinosV2PrototypeClient.Utils;
+using MarinosV2PrototypeShared.BaseModels;
 using Newtonsoft.Json;
 
 namespace MarinosV2PrototypeClient.Services.BaseServices;
@@ -17,7 +18,7 @@ public abstract class TService<T> where T : Entity
     /// 
     /// </summary>
     /// <param name="apiPath">Path to entity api</param>
-    protected TService(string apiPath)
+    protected TService(string apiPath = nameof(T))
     {
         ApiPath = apiPath;
     }

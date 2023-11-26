@@ -3,41 +3,20 @@ using MarinosV2PrototypeClient.Utils.Tracking;
 using Newtonsoft.Json;
 using ReactiveUI;
 using System;
+using MarinosV2PrototypeShared.BaseModels;
+using MarinosV2PrototypeShared.Models;
 
 namespace MarinosV2PrototypeClient.Models;
 
-public class SmsDocumentFile : Entity
+public class UI_SmsDocumentFile : SmsDocumentFile
 {
-    private string _file;
-    [TrackInclude, JsonProperty]
-    public string File
-    {
-        get => _file;
-        set => this.RaiseAndSetIfChanged(ref _file, value);
-    }
-
-    private Guid _idDocument;
-    [TrackInclude, JsonProperty]
-    public Guid IdDocument
-    {
-        get => _idDocument;
-        set => this.RaiseAndSetIfChanged(ref _idDocument, value);
-    }
-
-    private SmsDocument? _document;
-    public SmsDocument? Document
-    {
-        get => _document;
-        set => this.RaiseAndSetIfChanged(ref _document, value);
-    }
-
-    public SmsDocumentFile()
+    public UI_SmsDocumentFile()
     {
             
     }
 
-    public SmsDocumentFile(string file)
+    public UI_SmsDocumentFile(string file)
     {
-        _file       = file;
+        File       = file;
     }
 }

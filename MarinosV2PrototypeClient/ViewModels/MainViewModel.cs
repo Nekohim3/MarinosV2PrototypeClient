@@ -36,7 +36,7 @@ public class MainViewModel : ViewModelBase
         //var tree             = await partitionService.GetTree();
         //var partition        = await partitionService.GetById(Guid.Parse("78ba69ca-38e5-4ac1-8c11-5833eb596cb0"));
         var pList = new List<SmsPartition>();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 1; i++)
         {
             var p1 = new SmsPartition($"p1-{i}", $"n1-{i}");
             var p2 = new SmsPartition($"p2-{i}", $"n2-{i}");

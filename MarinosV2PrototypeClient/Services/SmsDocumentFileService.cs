@@ -5,7 +5,5 @@ namespace MarinosV2PrototypeClient.Services;
 
 public class SmsDocumentFileService : TService<SmsDocumentFile>
 {
-    public SmsDocumentFileService() : base("SmsDocumentFile")
-    {
-    }
+
 }
