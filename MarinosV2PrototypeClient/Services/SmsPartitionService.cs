@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using MarinosV2PrototypeClient.Models;
 using MarinosV2PrototypeClient.Services.BaseServices;
-using MarinosV2PrototypeClient.Utils;
 using MarinosV2PrototypeShared.Models;
 using Newtonsoft.Json;
 using RestSharp;

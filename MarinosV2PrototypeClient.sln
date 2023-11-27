@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarinosV2PrototypeClient", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarinosV2PrototypeClient.Desktop", "MarinosV2PrototypeClient.Desktop\MarinosV2PrototypeClient.Desktop.csproj", "{956BDDA8-F1D7-4551-9FCC-CC86E6ACAEF3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarinosV2PrototypeShared", "..\MarinosV2PrototypeShared\MarinosV2PrototypeShared\MarinosV2PrototypeShared.csproj", "{B60CACB6-55DE-4186-B998-18377AD7BF0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarinosV2PrototypeShared", "..\MarinosV2PrototypeShared\MarinosV2PrototypeShared\MarinosV2PrototypeShared.csproj", "{33300724-FA71-4B7C-9D23-7D9F721FA697}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{956BDDA8-F1D7-4551-9FCC-CC86E6ACAEF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{956BDDA8-F1D7-4551-9FCC-CC86E6ACAEF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{956BDDA8-F1D7-4551-9FCC-CC86E6ACAEF3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B60CACB6-55DE-4186-B998-18377AD7BF0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B60CACB6-55DE-4186-B998-18377AD7BF0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B60CACB6-55DE-4186-B998-18377AD7BF0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B60CACB6-55DE-4186-B998-18377AD7BF0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33300724-FA71-4B7C-9D23-7D9F721FA697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33300724-FA71-4B7C-9D23-7D9F721FA697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33300724-FA71-4B7C-9D23-7D9F721FA697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33300724-FA71-4B7C-9D23-7D9F721FA697}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

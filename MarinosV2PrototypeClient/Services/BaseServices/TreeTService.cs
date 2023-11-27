@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using MarinosV2PrototypeClient.Models.BaseModels;
-using MarinosV2PrototypeClient.Utils;
 using MarinosV2PrototypeShared.BaseModels;
 using Newtonsoft.Json;
 using RestSharp;
@@ -13,7 +9,7 @@ namespace MarinosV2PrototypeClient.Services.BaseServices
 {
     public abstract class TreeTService<T> : TService<T> where T : TreeEntity<T>
     {
-        protected TreeTService(string apiPath = nameof(T)) : base(apiPath)
+        protected TreeTService(string apiPath = "") : base(apiPath)
         {
         }
 

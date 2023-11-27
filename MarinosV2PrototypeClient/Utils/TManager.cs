@@ -1,10 +1,10 @@
-﻿using MarinosV2PrototypeClient.Models.BaseModels;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
+using MarinosV2PrototypeShared.BaseModels;
 
 namespace MarinosV2PrototypeClient.Utils;
 

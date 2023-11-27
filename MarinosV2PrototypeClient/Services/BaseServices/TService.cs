@@ -1,5 +1,4 @@
-﻿using MarinosV2PrototypeClient.Models.BaseModels;
-using RestSharp;
+﻿using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,14 +11,16 @@ namespace MarinosV2PrototypeClient.Services.BaseServices;
 public abstract class TService<T> where T : Entity
 {
     protected readonly string ApiPath;
-    public bool NoTrack { get; set; }
+    public             bool   NoTrack { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
     /// <param name="apiPath">Path to entity api</param>
-    protected TService(string apiPath = nameof(T))
+    protected TService(string apiPath = "")
     {
+        if (string.IsNullOrEmpty(apiPath))
+            apiPath = typeof(T).Name;
         ApiPath = apiPath;
     }
 
@@ -33,7 +34,7 @@ public abstract class TService<T> where T : Entity
         }
         catch (Exception e)
         {
-            
+
         }
 
         return null;
@@ -64,8 +65,9 @@ public abstract class TService<T> where T : Entity
         }
         catch (Exception e)
         {
-            
+
         }
+
         return null;
     }
 
@@ -81,6 +83,7 @@ public abstract class TService<T> where T : Entity
         {
 
         }
+
         return null;
     }
 
@@ -96,6 +99,7 @@ public abstract class TService<T> where T : Entity
         {
 
         }
+
         return null;
     }
 
@@ -111,6 +115,7 @@ public abstract class TService<T> where T : Entity
         {
 
         }
+
         return null;
     }
 
@@ -126,6 +131,7 @@ public abstract class TService<T> where T : Entity
         {
 
         }
+
         return null;
     }
 
@@ -141,10 +147,11 @@ public abstract class TService<T> where T : Entity
         {
 
         }
+
         return null;
     }
 
-    public virtual async Task<bool> Delete(Guid       id)
+    public virtual async Task<bool> Delete(Guid id)
     {
         try
         {
@@ -188,6 +195,7 @@ public abstract class TService<T> where T : Entity
         {
 
         }
+
         return false;
     }
 
@@ -203,6 +211,7 @@ public abstract class TService<T> where T : Entity
         {
 
         }
+
         return false;
     }
 }
