@@ -9,7 +9,7 @@ public static class RestRequestExtensions
     public static RestRequest GetTRequest(this object obj, string uri, Method m = Method.Get)
     {
         var req = new RestRequest(uri, m);
-        req.AddStringBody(JsonConvert.SerializeObject(obj, new JsonSerializerSettings(){ContractResolver = new CustomContractResolver()}), DataFormat.Json);
+        req.AddStringBody(JsonConvert.SerializeObject(obj, new JsonSerializerSettings(){ContractResolver = new EntityContractResolver()}), DataFormat.Json);
         return req;
     }
 

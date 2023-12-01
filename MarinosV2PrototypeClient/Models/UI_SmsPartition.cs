@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using MarinosV2PrototypeClient.Services;
+using MarinosV2PrototypeClient.Utils;
 using MarinosV2PrototypeShared.Models;
 using MarinosV2PrototypeShared.Utils;
 using ReactiveUI;
@@ -7,17 +9,53 @@ namespace MarinosV2PrototypeClient.Models;
 
 public class UI_SmsPartition : SmsPartition
 {
-    private string _test;
-    public string Test
+    public override ICollection<SmsDocument> Documents
     {
-        get => _test;
-        set => this.RaiseAndSetIfChanged(ref _test, value);
+        get 
+        {
+            if (_documents == null)
+            {
+                _documents = new ObservableCollectionWithSelectedItem<SmsDocument>();
+                if (Version != 0)
+                {
+                    var docs = new SmsDocumentService().GetDocumentsByPartition(Id).Result;
+                    if (docs != null)
+                        _documents.AddRange(docs);
+                }
+            }
+            return _documents;
+        }
+        protected set => this.RaiseAndSetIfChanged(ref _documents, value);
+    }
+
+    public override ICollection<SmsPartition> Childs
+    {
+        get
+        {
+            if (_childs == null)
+            {
+                _childs = new ObservableCollectionWithSelectedItem<SmsPartition>();
+                if (Version != 0)
+                {
+                    var childs = new SmsPartitionService().GetChildsByParentId(Id).Result;
+                    if (childs != null)
+                        _childs.AddRange(childs);
+                }
+            }
+            return _childs;
+        }
+        protected set => _childs = value;
+    }
+
+    public override SmsPartition? Parent
+    {
+        get => _parent;
+        protected set => this.RaiseAndSetIfChanged(ref _parent, value);
     }
 
     public UI_SmsPartition()
     {
-        Childs    = new ObservableCollectionWithSelectedItem<SmsPartition>();
-        Documents = new ObservableCollectionWithSelectedItem<SmsDocument>();
+
     }
 
     public UI_SmsPartition(string name, string number) : this()

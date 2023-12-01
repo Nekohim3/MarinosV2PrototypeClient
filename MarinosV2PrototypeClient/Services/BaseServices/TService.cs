@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace MarinosV2PrototypeClient.Services.BaseServices;
 
-public abstract class TService<T> where T : Entity
+public abstract class TService<T, TT> where TT : Entity where T : TT
 {
     protected readonly string ApiPath;
     public             bool   NoTrack { get; set; }
@@ -20,7 +20,7 @@ public abstract class TService<T> where T : Entity
     protected TService(string apiPath = "")
     {
         if (string.IsNullOrEmpty(apiPath))
-            apiPath = typeof(T).Name;
+            apiPath = typeof(TT).Name;
         ApiPath = apiPath;
     }
 
