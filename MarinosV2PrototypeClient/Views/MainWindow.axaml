@@ -4,9 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:MarinosV2PrototypeClient.Views"
+        xmlns:models="clr-namespace:MarinosV2PrototypeClient.Models"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="MarinosV2PrototypeClient.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
+        x:DataType="vm:MainViewModel"
         Title="MarinosV2PrototypeClient">
 
     <Design.DataContext>
@@ -14,7 +16,14 @@
     </Design.DataContext>
     <Grid ColumnDefinitions="*, *">
         <Grid Grid.Column="0">
-            <TreeView></TreeView>
+            <TreeView ItemsSource="{Binding SmsPartitionList}">
+                <TreeView.ItemTemplate>
+					<TreeDataTemplate ItemsSource="{Binding Childs}">
+                        <TextBlock Text="{Binding Name}"/>
+                    </TreeDataTemplate>
+                </TreeView.ItemTemplate>
+
+            </TreeView>
         </Grid>
     </Grid>
 </Window>

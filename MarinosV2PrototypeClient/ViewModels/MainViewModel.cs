@@ -17,15 +17,15 @@ namespace MarinosV2PrototypeClient.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
-    private ObservableCollectionWithSelectedItem<SmsPartition> _smsPartitionList;
-    public ObservableCollectionWithSelectedItem<SmsPartition> SmsPartitionList
+    private ObservableCollectionWithSelectedItem<UI_SmsPartition> _smsPartitionList;
+    public ObservableCollectionWithSelectedItem<UI_SmsPartition> SmsPartitionList
     {
         get => _smsPartitionList;
         set => this.RaiseAndSetIfChanged(ref _smsPartitionList, value);
     }
 
-    private ObservableCollectionWithSelectedItem<SmsDocument> _smsDocumentList;
-    public ObservableCollectionWithSelectedItem<SmsDocument> SmsDocumentList
+    private ObservableCollectionWithSelectedItem<UI_SmsDocument> _smsDocumentList;
+    public ObservableCollectionWithSelectedItem<UI_SmsDocument> SmsDocumentList
     {
         get => _smsDocumentList;
         set => this.RaiseAndSetIfChanged(ref _smsDocumentList, value);
@@ -40,60 +40,62 @@ public class MainViewModel : ViewModelBase
     {
 
         var partitionService = new SmsPartitionService();
-        ////var tree             = await partitionService.GetTree();
-        ////var partition        = await partitionService.GetById(Guid.Parse("78ba69ca-38e5-4ac1-8c11-5833eb596cb0"));
+        //var tree             = await partitionService.GetTree();
+        //var partition        = await partitionService.GetById(Guid.Parse("78ba69ca-38e5-4ac1-8c11-5833eb596cb0"));
         //var pList = new List<SmsPartition>();
-        //for (int i = 0; i < 1; i++)
+        //for (int i = 0; i < 3; i++)
         //{
-        var p1 = new UI_SmsPartition();
-        var p2 = new UI_SmsPartition();
-        var p3 = new UI_SmsPartition();
-        var p4 = new UI_SmsPartition();
-        var p5 = new UI_SmsPartition();
-        p1.AddChild(p2);
-        p2.AddChild(p3);
-        p3.AddChild(p4);
-        p4.AddChild(p5);
-        var d1  = new UI_SmsDocument("d1",  "n1");
-        var d2  = new UI_SmsDocument("d2",  "n2");
-        var d3  = new UI_SmsDocument("d3",  "n3");
-        var d11 = new UI_SmsDocument("d11", "n11");
-        var d12 = new UI_SmsDocument("d12", "n12");
-        var d13 = new UI_SmsDocument("d13", "n13");
-        var d21 = new UI_SmsDocument("d21", "n21");
-        var d22 = new UI_SmsDocument("d22", "n22");
-        var d23 = new UI_SmsDocument("d23", "n23");
-        p1.AddDocument(d1);
-        p1.AddDocument(d2);
-        p1.AddDocument(d3);
-        p2.AddDocument(d11);
-        p2.AddDocument(d12);
-        p2.AddDocument(d13);
-        p3.AddDocument(d21);
-        p3.AddDocument(d22);
-        p3.AddDocument(d23);
-        //    pList.Add(p1);
-        //}
-        //var lst              = await partitionService.GetAll();
-        //var lst2             = await partitionService.GetTree();
-        //for (var i = 0; i < 10000; i++)
-        //{
-        //var p1 = new SmsPartition("p1", "n1");
-        //var p2 = new SmsPartition("p2", "n2");
-        //var p3 = new SmsPartition("p3", "n3");
-        //var p4 = new SmsPartition("p4", "n4");
-        //var p5 = new SmsPartition("p5", "n5");
-        //p1.AddChild(p2);
-        //p2.AddChild(p3);
-        //p3.AddChild(p4);
-        //p4.AddChild(p5);
-        //p3.Documents.Add(new SmsDocument("d1", "n1"));
+        //    var p1 = new UI_SmsPartition($"{i}1", $"{i}1");
+        //    var p2 = new UI_SmsPartition($"{i}2", $"{i}2");
+        //    var p3 = new UI_SmsPartition($"{i}3", $"{i}3");
+        //    var p4 = new UI_SmsPartition($"{i}4", $"{i}4");
+        //    var p5 = new UI_SmsPartition($"{i}5", $"{i}5");
+        //    p1.AddChild(p2);
+        //    p2.AddChild(p3);
+        //    p3.AddChild(p4);
+        //    p4.AddChild(p5);
+        //    var d1  = new UI_SmsDocument($"{i}d1",  $"{i}n1");
+        //    var d2  = new UI_SmsDocument($"{i}d2",  $"{i}n2");
+        //    var d3  = new UI_SmsDocument($"{i}d3",  $"{i}n3");
+        //    var d11 = new UI_SmsDocument($"{i}d11", $"{i}n11");
+        //    var d12 = new UI_SmsDocument($"{i}d12", $"{i}n12");
+        //    var d13 = new UI_SmsDocument($"{i}d13", $"{i}n13");
+        //    var d21 = new UI_SmsDocument($"{i}d21", $"{i}n21");
+        //    var d22 = new UI_SmsDocument($"{i}d22", $"{i}n22");
+        //    var d23 = new UI_SmsDocument($"{i}d23", $"{i}n23");
+        //    p1.AddDocument(d1);
+        //    p1.AddDocument(d2);
+        //    p1.AddDocument(d3);
+        //    p2.AddDocument(d11);
+        //    p2.AddDocument(d12);
+        //    p2.AddDocument(d13);
+        //    p3.AddDocument(d21);
+        //    p3.AddDocument(d22);
+        //    p3.AddDocument(d23);
+        //    //    pList.Add(p1);
+        //    //}
+        //    //var lst              = await partitionService.GetAll();
+        //    //var lst2             = await partitionService.GetTree();
+        //    //for (var i = 0; i < 10000; i++)
+        //    //{
+        //    //var p1 = new SmsPartition("p1", "n1");
+        //    //var p2 = new SmsPartition("p2", "n2");
+        //    //var p3 = new SmsPartition("p3", "n3");
+        //    //var p4 = new SmsPartition("p4", "n4");
+        //    //var p5 = new SmsPartition("p5", "n5");
+        //    //p1.AddChild(p2);
+        //    //p2.AddChild(p3);
+        //    //p3.AddChild(p4);
+        //    //p4.AddChild(p5);
+        //    //p3.Documents.Add(new SmsDocument("d1", "n1"));
 
-        var qq = await partitionService.Save(p1);
+        //    var qq = await partitionService.Save(p1);
 
-        //var qqq  = pList;
-        //var qqqq = EntityFrameworkQueryableExtensions.Include(pList, _ => _.Documents);
+        //    //var qqq  = pList;
+        //    //var qqqq = EntityFrameworkQueryableExtensions.Include(pList, _ => _.Documents);
         //}
+        var lst = await partitionService.GetRootList();
+        SmsPartitionList = new ObservableCollectionWithSelectedItem<UI_SmsPartition>(lst);
     }
 }
 

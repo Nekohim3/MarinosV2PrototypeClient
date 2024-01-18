@@ -13,20 +13,20 @@ namespace MarinosV2PrototypeClient.Services.BaseServices
         {
         }
 
-        //public virtual async Task<IList<T>?> GetTree()
-        //{
-        //    try
-        //    {
-        //        var response = await g.ApiClient.ExecuteAsync(new RestRequest($"{ApiPath}/Tree"));
-        //        if (response.IsSuccessStatusCode && !string.IsNullOrEmpty(response.Content))
-        //            return JsonConvert.DeserializeObject<List<T>>(response.Content);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //    }
+        public virtual async Task<IList<T>?> GetRootList()
+        {
+            try
+            {
+                var response = await g.ApiClient.ExecuteAsync(new RestRequest($"{ApiPath}/Tree"));
+                if (response.IsSuccessStatusCode && !string.IsNullOrEmpty(response.Content))
+                    return JsonConvert.DeserializeObject<List<T>>(response.Content);
+            }
+            catch (Exception e)
+            {
+            }
 
-        //    return null;
-        //}
+            return null;
+        }
 
         //public virtual async Task<T?> GetBranch(Guid? parentId)
         //{

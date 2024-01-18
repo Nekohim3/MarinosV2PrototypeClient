@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using MarinosV2PrototypeClient.Services;
 using MarinosV2PrototypeClient.Utils;
 using MarinosV2PrototypeShared.Models;
@@ -9,7 +10,7 @@ namespace MarinosV2PrototypeClient.Models;
 
 public class UI_SmsPartition : SmsPartition
 {
-    public override ICollection<SmsDocument> Documents
+    public override ICollection<SmsDocument>? Documents
     {
         get 
         {
@@ -25,10 +26,10 @@ public class UI_SmsPartition : SmsPartition
             }
             return _documents;
         }
-        protected set => this.RaiseAndSetIfChanged(ref _documents, value);
+        set => this.RaiseAndSetIfChanged(ref _documents, value);
     }
 
-    public override ICollection<SmsPartition> Childs
+    public override ICollection<SmsPartition>? Childs
     {
         get
         {
@@ -37,20 +38,20 @@ public class UI_SmsPartition : SmsPartition
                 _childs = new ObservableCollectionWithSelectedItem<SmsPartition>();
                 if (Version != 0)
                 {
-                    var childs = new SmsPartitionService().GetChildsByParentId(Id).Result;
+                    var childs = Task.Run(() => new SmsPartitionService().GetChildsByParentId(Id)).Result;
                     if (childs != null)
                         _childs.AddRange(childs);
                 }
             }
             return _childs;
         }
-        protected set => _childs = value;
+        set => _childs = value;
     }
 
     public override SmsPartition? Parent
     {
         get => _parent;
-        protected set => this.RaiseAndSetIfChanged(ref _parent, value);
+        set => this.RaiseAndSetIfChanged(ref _parent, value);
     }
 
     public UI_SmsPartition()
